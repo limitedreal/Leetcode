@@ -59,10 +59,14 @@ public class MySort {
     }
 
     public static void adjustNode(int[] arr, int i, int start, int end) {
-        for (int j = i; 2 * j + 1 <= end; ) {//当2*j+1>end时，此结点就已经走到叶子结点了
-            int child = 2 * j + 1;//先赋值为左孩子index
-            if (child + 1 <= end) {//说明存在右孩子
-                child = arr[child] > arr[child + 1] ? child : child + 1;//child取左右子孩子中较大值
+        for (int j = i; 2 * j + 1 <= end; ) {
+            //当2*j+1>end时，此结点就已经走到叶子结点了
+            int child = 2 * j + 1;
+            //先赋值为左孩子index
+            if (child + 1 <= end) {
+                //说明存在右孩子
+                child = arr[child] > arr[child + 1] ? child : child + 1;
+                //child取左右子孩子中较大值
             }
             if (arr[j] < arr[child]) {
                 swapNode(arr, j, child);

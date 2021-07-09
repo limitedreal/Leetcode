@@ -1,5 +1,7 @@
 package main.LeetCode.l19;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -23,31 +25,29 @@ public class Solution {
     }
 
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        if(head==null){
+        if (head == null) {
             return null;
         }
         Queue<ListNode> queue = new LinkedList();
-        ListNode now = head,pre=null;
-        int i=0;
-        while (now!=null){
-            if(i>=n){
+        ListNode now = head, pre = null;
+        int i = 0;
+        while (now != null) {
+            if (i >= n) {
                 //说明已经塞了n个了
                 pre = queue.poll();
                 queue.add(now);
-            }else{
+            } else {
                 queue.add(now);
                 i++;
             }
-            now=now.next;
+            now = now.next;
         }
-        if(pre==null){
+        if (pre == null) {
             //那就说明没有进入i>=n的环节，说明要删除是头结点
             return head.next;
-        }else{
-            pre.next=pre.next.next;
+        } else {
+            pre.next = pre.next.next;
             return head;
         }
-
-
     }
 }

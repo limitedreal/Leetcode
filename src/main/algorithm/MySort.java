@@ -82,5 +82,37 @@ public class MySort {
         arr[a] = arr[b];
         arr[b] = t;
     }
+    //1.快排
+    static void quickSort(int[] arr, int low, int high) {
+        //根据pivot分成比pivot大和比pivot小的两部分
+        //先寻找pivot，然后分治
+        if (low < high) {
+            int pivot = getPivotIndex(arr, low, high);
+            quickSort(arr, low, pivot);
+            quickSort(arr, pivot + 1, high);
+        }
+    }
+
+    static int getPivotIndex(int[] arr, int low, int high) {
+        int pivot = arr[low];
+        while (low < high) {
+            while (low < high) {
+                if (arr[high] < pivot) {
+                    arr[low] = arr[high];
+                    break;
+                }
+                high--;
+            }
+            while (low < high) {
+                if (arr[low] >= pivot) {
+                    arr[high] = arr[low];
+                    break;
+                }
+                low++;
+            }
+        }
+        arr[low] = pivot;
+        return low;
+    }
 
 }

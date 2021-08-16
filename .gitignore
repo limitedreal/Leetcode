@@ -38,3 +38,11 @@ build/
 /src/main/resources/application-test.yml
 /src/main/resources/application-local.yml
 /src/main/local_resources/**
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen

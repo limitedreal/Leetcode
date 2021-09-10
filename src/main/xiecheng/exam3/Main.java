@@ -44,9 +44,10 @@ public class Main {
             for (int j = weight[i]; j <= v; j++) {
                 int r1=table[j-weight[i]];
                 int r2=table[j];
-                table[i]=Math.max(r1,r2)
+                table[i]=Math.max(r1,r2);
             }
         }
+        return 0;
     }
 
 

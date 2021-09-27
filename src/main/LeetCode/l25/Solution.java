@@ -36,40 +36,37 @@ public class Solution {
         Solution s = new Solution();
         s.reverseKGroup(l1, 2);
     }
-
-
     public ListNode reverseKGroup(ListNode head, int k) {
-        if (head == null) {
-            return head;
-        }
-        List<ListNode> list = new ArrayList<>();
-        ListNode now = head;
-        while (now != null) {
-            list.add(now);
-            now = now.next;
-        }
-        int cnt = 0;
-        for (int i = 0; i < list.size(); i++) {
-            cnt++;
-            if (cnt == k) {
-                reverse(list, i - cnt + 1, i);
-                cnt = 0;
+        ListNode hair=new ListNode(0);
+        hair.next=head;
+        ListNode pre=hair;
+        ListNode now=pre;
+        while (now!=null){
+            for (int i = 0; i < k; i++) {
+                now=now.next;
+                if(now==null){
+                    return hair.next;
+                }
             }
+            pre = reverse(pre, now.next);
+            now=pre;
         }
-        for (int i = 0; i < list.size() - 1; i++) {
-            list.get(i).next = list.get(i + 1);
-        }
-        list.get(list.size() - 1).next = null;
-        return list.get(0);
+        return hair.next;
     }
-
-    public void reverse(List<ListNode> list, int start, int end) {
-        while (start < end) {
-            ListNode t = list.get(start);
-            list.set(start, list.get(end));
-            list.set(end, t);
-            start++;
-            end--;
+    public ListNode reverse(ListNode pre,ListNode tail){
+        ListNode now=pre.next;
+        ListNode result=pre.next;
+        while (now.next!=tail){
+            ListNode removed=now.next;
+            now.next=removed.next;
+            removed.next=pre.next;
+            pre.next=removed;
         }
+        return result;
     }
 }
+
+
+
+
+

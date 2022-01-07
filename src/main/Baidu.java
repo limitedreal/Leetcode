@@ -1,8 +1,10 @@
 package main;
 
+import java.util.StringJoiner;
+
 public class Baidu {
     public static void main(String[] args) {
-
+        System.out.println(new StringJoiner(", ", "create table " + "test_once" + "(", ")"));
     }
 
     //包括正负号、整数小数、科学计数法

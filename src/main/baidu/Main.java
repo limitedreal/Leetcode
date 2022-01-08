@@ -26,6 +26,7 @@ public class Main {
 
         }
 //是否可以先写
+        // 修复完成
         if (W <= empty) {
             if (solution(empty - W, ocupy, R, W)) {
                 System.out.println("OK");

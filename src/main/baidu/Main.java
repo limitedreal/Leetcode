@@ -13,7 +13,7 @@ public class Main {
         int W = sc.nextInt();
         int a=0;
         find(0, L, R, W);
-        // branch dev
+        // Creating a new branch is quick & simple.
     }
 
     public static void find(int empty, int ocupy, int R, int W) {

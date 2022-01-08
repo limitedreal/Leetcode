@@ -14,6 +14,7 @@ public class Main {
         for (int i = 0; i < n; i++) {
             int x = sc.nextInt();
             int y = sc.nextInt();
+            int a=0;
             xLocation[i] = x;
             yLocation[i] = y;
         }

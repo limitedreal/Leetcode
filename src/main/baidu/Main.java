@@ -11,7 +11,9 @@ public class Main {
         int L = sc.nextInt();
         int R = sc.nextInt();
         int W = sc.nextInt();
+        int a=0;
         find(0, L, R, W);
+        // branch dev
     }
 
     public static void find(int empty, int ocupy, int R, int W) {
